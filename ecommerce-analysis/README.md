@@ -38,3 +38,42 @@ The EDA milestone is complete. We have explored the structure, quality, and rela
 - We visualized the main anomalies and outliers to verify whether they were meaningful business signals or data issues.
 - We extracted actionable insights to guide feature engineering and the machine learning phase.
 - We validated that the business story is coherent before moving to predictive modeling.
+
+# Bilan Feature Engineering
+
+## What we have now
+
+| Element                       |                                                  Value |
+| ----------------------------- | -----------------------------------------------------: |
+| Main focus                    |                             Feature Engineering for ML |
+| Dataset status                |                                  Clean and transformed |
+| Target variable               |                          `est_en_retard` (binary flag) |
+| Geographic variables created  |      `customer_region`, `seller_region`, `meme_region` |
+| Operational variables created | `densite`, `mois_a_risque`, `trimestre`, `distance_km` |
+| Encoding                      |                          One-Hot on regional variables |
+| Final feature quality         |                               Ready for model training |
+| Data leakage risk             |                                   Reduced / controlled |
+| Modeling readiness            |                                                   High |
+
+The Feature Engineering milestone is complete. We transformed the cleaned dataset into a predictive-ready structure by building meaningful variables that reflect delivery behavior, geography, and logistics constraints.
+
+## What we have done in this milestone
+
+- We created geographic aggregation variables to group states into operational regions.
+- We derived `meme_region` to capture whether the customer and seller belong to the same region.
+- We calculated a `densite` metric from weight and volume to separate compact from bulky products.
+- We extracted temporal signals such as `mois_a_risque` and `trimestre` to capture seasonal delay risk.
+- We encoded categorical geographic variables with One-Hot encoding for machine learning compatibility.
+- We excluded non-predictive identifiers and leakage-prone fields to keep the model valid and interpretable.
+- We verified missing values, stabilized scales, and kept only business-relevant features.
+
+## Key business impact
+
+- Geographic proximity influences delivery risk and helps structure regional patterns.
+- Product density captures operational differences between compact and volumetric shipments.
+- Seasonal and timing variables make delay patterns more explicit for prediction.
+- The final feature set is better aligned with the business logic behind logistics performance.
+
+## Final status
+
+The feature engineering stage is now complete and the dataset is ready to be used in the modeling phase. The resulting variables are more informative, more stable, and more suitable for predictive analysis than the raw operational data.
