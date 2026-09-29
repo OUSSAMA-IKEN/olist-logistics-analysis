@@ -77,3 +77,123 @@ The Feature Engineering milestone is complete. We transformed the cleaned datase
 ## Final status
 
 The feature engineering stage is now complete and the dataset is ready to be used in the modeling phase. The resulting variables are more informative, more stable, and more suitable for predictive analysis than the raw operational data.
+
+```markdown
+# Bilan Data Cleaning
+
+## What we have now
+
+| Element                      |                             Value |
+| ---------------------------- | --------------------------------: |
+| Final rows                   |                           110,181 |
+| Columns                      |                                21 |
+| Delay rate (`est_en_retard`) |                              6.8% |
+| Median distance              |                            432 km |
+| Multivariate anomalies       | 2.0% (feature kept, not excluded) |
+| Physical errors removed      |                                 8 |
+
+The Data Cleaning milestone is officially complete. We now have a clean analytical table, a clear target variable, and geographically and logistically consistent features.
+
+# Bilan EDA
+
+## What we have now
+
+| Element                    |                                                                        Value |
+| -------------------------- | ---------------------------------------------------------------------------: |
+| Main focus                 |                                              Exploratory Data Analysis (EDA) |
+| Data quality status        |                                                 Clean and ready for analysis |
+| Key variables studied      | Order date, delivery delay, payment, product category, seller zone, distance |
+| Notable patterns           | Strong concentration of late deliveries in certain cities and product groups |
+| Customer behavior insights |           Orders are mostly concentrated in a few key regions and categories |
+| Operational signals        |     Logistics and distance variables show meaningful influence on delay risk |
+| Recommendation status      |               Insights are ready to support feature engineering and modeling |
+
+The EDA milestone is complete. We have explored the structure, quality, and relationships in the dataset to better understand the business drivers behind delivery performance and customer behavior.
+
+## What we have done in this milestone
+
+- We reviewed the cleaned dataset to understand its overall structure, distributions, and missing-value patterns.
+- We analyzed the target variable and identified the main drivers of delivery delay, including logistics and geographic factors.
+- We explored customer, product, and seller behavior to detect repeat patterns and segmentation opportunities.
+- We examined correlations and distributions for key variables such as distance, order value, category, and delivery timing.
+- We visualized the main anomalies and outliers to verify whether they were meaningful business signals or data issues.
+- We extracted actionable insights to guide feature engineering and the machine learning phase.
+- We validated that the business story is coherent before moving to predictive modeling.
+
+# Bilan Feature Engineering
+
+## What we have now
+
+| Element                        |                                              Value |
+| ------------------------------ | ---------------------------------------------------: |
+| Main focus                     |                         Feature Engineering for ML |
+| Dataset status                 |                             Clean and transformed |
+| Target variable                |                     `est_en_retard` (binary flag) |
+| Geographic variables created   |       `customer_region`, `seller_region`, `meme_region` |
+| Operational variables created | `densite`, `mois_a_risque`, `trimestre`, `distance_km` |
+| Encoding                      |                     One-Hot on regional variables |
+| Final feature quality         |                              Ready for model training |
+| Data leakage risk             |                                   Reduced / controlled |
+| Modeling readiness            |                                               High |
+
+The Feature Engineering milestone is complete. We transformed the cleaned dataset into a predictive-ready structure by building meaningful variables that reflect delivery behavior, geography, and logistics constraints.
+
+## What we have done in this milestone
+
+- We created geographic aggregation variables to group states into operational regions.
+- We derived `meme_region` to capture whether the customer and seller belong to the same region.
+- We calculated a `densite` metric from weight and volume to separate compact from bulky products.
+- We extracted temporal signals such as `mois_a_risque` and `trimestre` to capture seasonal delay risk.
+- We encoded categorical geographic variables with One-Hot encoding for machine learning compatibility.
+- We excluded non-predictive identifiers and leakage-prone fields to keep the model valid and interpretable.
+- We verified missing values, stabilized scales, and kept only business-relevant features.
+
+## Key business impact
+
+- Geographic proximity influences delivery risk and helps structure regional patterns.
+- Product density captures operational differences between compact and volumetric shipments.
+- Seasonal and timing variables make delay patterns more explicit for prediction.
+- The final feature set is better aligned with the business logic behind logistics performance.
+
+## Final status
+
+The feature engineering stage is now complete and the dataset is ready to be used in the modeling phase. The resulting variables are more informative, more stable, and more suitable for predictive analysis than the raw operational data.
+
+# Bilan Machine Learning
+
+## What we have now
+
+| Element                     |                                                  Value |
+| --------------------------- | -------------------------------------------------------: |
+| Main focus                  |                                      Model training and evaluation |
+| Target variable             |                                     `est_en_retard` (binary target) |
+| Modeling objective         |              Predict late delivery risk for e-commerce orders |
+| Data split                 |                                 Train / validation / test |
+| Algorithms tested          |        Logistic Regression, Random Forest, Gradient Boosting |
+| Evaluation metrics         |          Accuracy, Precision, Recall, F1-score, ROC-AUC |
+| Main challenge             |       Class imbalance and operationally meaningful prediction |
+| Modeling readiness         |                                                   High |
+
+The Machine Learning milestone is complete. We transformed the engineered dataset into a supervised learning problem and trained predictive models to estimate the probability of a delivery being late.
+
+## What we have done in this milestone
+
+- We prepared the final feature matrix and target variable in a format compatible with machine learning algorithms.
+- We split the data into training and evaluation sets while preserving the target distribution.
+- We tested several baseline classifiers to benchmark the predictive performance.
+- We evaluated model quality using classification metrics adapted to imbalance-sensitive business settings.
+- We analyzed precision-recall trade-offs to balance operational usefulness and false positive risk.
+- We checked model stability and interpretability to ensure the result matches logistics business logic.
+- We selected the most relevant algorithm for deployment and further optimization.
+
+## Key business impact
+
+- The model helps identify orders with a high probability of delay before shipment or dispatch.
+- Operational teams can prioritize interventions on high-risk orders and regions.
+- The model uses business-sensitive variables such as geography, density, and time patterns.
+- The predictive approach supports better planning and reduced logistics disruption.
+
+## Final status
+
+The machine learning phase is now complete. The project has moved from raw data preparation to a predictive system capable of identifying delivery delay risk with a business-oriented and robust feature set.
+```
