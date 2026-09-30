@@ -1,0 +1,44 @@
+Commandes =
+    DISTINCTCOUNT ( Logistique[order_id] )
+
+Commandes en retard =
+    CALCULATE (
+        [Commandes],
+        Logistique[est_en_retard] = 1
+    )
+
+Commandes a l'heure =
+    [Commandes] - [Commandes en retard]
+
+Taux de retard =
+    DIVIDE ( [Commandes en retard], [Commandes] )
+
+Taux a l'heure =
+    DIVIDE ( [Commandes a l'heure], [Commandes] )
+
+Delai moyen de livraison (jours) =
+    AVERAGE ( Logistique[delai_livraison_total] )
+
+Delai moyen avant expedition (h) =
+    AVERAGE ( Logistique[delai_avant_expedition_h] )
+
+Distance moyenne (km) =
+    AVERAGE ( Logistique[distance_km] )
+
+Retard moyen (jours) =
+    CALCULATE (
+        AVERAGE ( Logistique[retard_jours] ),
+        Logistique[est_en_retard] = 1
+    )
+
+Part meme etat =
+    DIVIDE (
+        CALCULATE ( [Commandes], Logistique[meme_etat] = 1 ),
+        [Commandes]
+    )
+
+Commandes avec anomalie =
+    CALCULATE (
+        [Commandes],
+        Logistique[anomalie_multivariee] = 1
+    )
