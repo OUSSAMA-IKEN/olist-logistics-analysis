@@ -29,13 +29,13 @@ Format 16:9, titre `Livraisons | Vue d'ensemble`, arrière-plan clair.
 
 Titre `Livraisons | Zones et opérations`.
 
-| Zone            | Visuel              | Champs / mesures                                                                                                                                                             |
-| --------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Haut gauche     | Barres horizontales | Axe : `customer_state`; Valeurs : `[Taux de retard]`; info-bulle : `[Commandes]` et `[Retard moyen (jours)]`; filtre `[Commandes] >= 100`                                    |
-| Haut droite     | Colonnes            | Axe : `mois_achat`; Valeurs : `[Delai moyen avant expedition (h)]` et `[Delai moyen de livraison (jours)]` (utiliser deux visuels séparés si les échelles gênent la lecture) |
-| Bas gauche      | Nuage de points     | X : `distance_km`; Y : `delai_livraison_total`; Légende : `est_en_retard`; Détails : `order_id`; transparence élevée                                                         |
-| Bas droite      | Matrice             | Lignes : `seller_state`; Colonnes : `meme_etat`; Valeurs : `[Commandes]`, `[Taux de retard]`, `[Retard moyen (jours)]`                                                       |
-| Rail de filtres | Segmentations       | `mois_achat`, `customer_state`, `seller_state`, `anomalie_multivariee`                                                                                                       |
+| Zone            | Visuel                           | Champs / mesures                                                                                                                          |
+| --------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Haut gauche     | Barres horizontales              | Axe : `customer_state`; Valeurs : `[Taux de retard]`; info-bulle : `[Commandes]` et `[Retard moyen (jours)]`; filtre `[Commandes] >= 100` |
+| Haut droite     | 2 graphiques en colonnes         | Axe : `mois_achat`; un visuel pour `[Delai moyen avant expedition (h)]`, l'autre pour `[Delai moyen de livraison (jours)]`                |
+| Bas gauche      | Colonnes par tranche de distance | Créer des tranches de 100 km à partir de `distance_km`; Axe : tranche; Valeurs : `[Taux de retard]`; info-bulle : `[Commandes]`           |
+| Bas droite      | Matrice                          | Lignes : `seller_state`; Colonnes : `meme_etat`; Valeurs : `[Commandes]`, `[Taux de retard]`, `[Retard moyen (jours)]`                    |
+| Rail de filtres | Segmentations                    | `mois_achat`, `customer_state`, `seller_state`, `anomalie_multivariee`                                                                    |
 
 ## Lecture des KPI
 
