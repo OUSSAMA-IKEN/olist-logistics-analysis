@@ -9,7 +9,6 @@ data/exports/
 *.xlsx
 *.xls
 *.json
-*.pbix
 *.pbit
 
 # Python
